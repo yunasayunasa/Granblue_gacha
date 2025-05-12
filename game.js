@@ -99,7 +99,7 @@ class StartScene extends Phaser.Scene {
     constructor() { super({ key: 'StartScene' }); }
     create() {
         this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'game_bg').setDisplaySize(GAME_WIDTH, GAME_HEIGHT).setDepth(-1);
-        this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 3, 'どうしてガチャは蒼いのか', { ...CONFIG.RESULT_TEXT_STYLE, fontSize: '48px'}).setOrigin(0.5);
+        this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 3, 'どうして\nガチャは蒼いのか', { ...CONFIG.RESULT_TEXT_STYLE, fontSize: '48px'}).setOrigin(0.5);
         const startButton = this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 50, 'ゲームスタート', CONFIG.RESULT_TEXT_STYLE)
             .setOrigin(0.5).setPadding(20).setStyle({ backgroundColor: '#1e6091', fill: '#ffffff'}).setInteractive({ useHandCursor: true });
         startButton.on('pointerdown', () => {
