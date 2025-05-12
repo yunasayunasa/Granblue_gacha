@@ -23,9 +23,9 @@ const CONFIG = {
 
     SORT_AREA_HEIGHT: 80,
     TEXT_STYLE: { fontSize: '22px', fill: '#fff', stroke: '#000', strokeThickness: 4 },
-    TARGET_INFO_STYLE: { fontSize: '17px', fill: '#fff', stroke: '#000', strokeThickness: 2, align: 'center' },
+    TARGET_INFO_STYLE: { fontSize: '35px', fill: '#fff', stroke: '#000', strokeThickness: 2, align: 'center' },
     RESULT_TEXT_STYLE: { fontSize: '30px', fill: '#fff', stroke: '#000', strokeThickness: 5, align: 'center' },
-    POPUP_TEXT_STYLE: { fontSize: '20px', fill: '#333', align: 'center', wordWrap: { width: GAME_WIDTH * 0.6 } },
+    POPUP_TEXT_STYLE: { fontSize: '40px', fill: '#333', align: 'center', wordWrap: { width: GAME_WIDTH * 0.6 } },
 
     // --- タコの収集アイテムデータ (貝はここから削除) ---
     TAKO_COLLECTIBLES: [
@@ -33,6 +33,17 @@ const CONFIG = {
         { id: 'tako_striped', name: 'シマシマだこ', imageKey: 'collect_tako_2', description: '体に綺麗な縞模様があるタコ。少し珍しい。' },
         { id: 'tako_small', name: 'チビだこ', imageKey: 'collect_tako_3', description: 'とても小さいが元気なタコ。すばしっこい。' },
         { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+
+ { id: 'tako_2', name: 'スミ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink3', name: 'スミだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink4', name: 'はきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink5', name: 'スミルミナス', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink6', name: 'スミはつかは', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+       
+
+
+
+
         { id: 'tako_king', name: 'タコキング', imageKey: 'collect_tako_king', description: '風格ただよう、タコの中の王様（自称）。' },
         // 必要ならさらにタコの種類を追加
     ],
