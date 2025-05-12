@@ -102,6 +102,7 @@ class PreloadScene extends Phaser.Scene {
         // UI用画像
         this.load.image('popup_bg', ASSETS_PATH + 'popup_background.png');
         this.load.image('game_bg', ASSETS_PATH + 'background_topdown.jpg');
+        
     }
     create() { this.scene.start('StartScene'); }
 }
