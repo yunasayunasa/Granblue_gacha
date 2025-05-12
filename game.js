@@ -31,14 +31,14 @@ const CONFIG = {
     TAKO_COLLECTIBLES: [
         { id: 'tako_common_1', name: 'ハルタノオキミヤゲ', imageKey: 'collect_tako_1', description: '忘れ去られし古の遺品' },
         { id: 'tako_striped', name: 'ジッシツルミナス', imageKey: 'collect_tako_2', description: 'もはやルミナス。\nとても強い。' },
-        { id: 'tako_small', name: 'チビだこ', imageKey: 'collect_tako_3', description: 'とても小さいが元気なタコ。すばしっこい。' },
-        { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_small', name: 'ロジャーダケズルイ', imageKey: 'collect_tako_3', description: '短い命だったね...' },
+        { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_6', description: '驚くとすぐに墨を吐いて逃げる。' },
 
  { id: 'tako_2', name: 'トリアエズコレ', imageKey: 'collect_tako_4', description: 'サプ不可文化はそろそろ無くした方がいい' },
-        { id: 'tako_ink3', name: 'スミだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
-        { id: 'tako_ink4', name: 'はきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
-        { id: 'tako_ink5', name: 'スミルミナス', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
-        { id: 'tako_ink6', name: 'スミはつかは', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink3', name: 'スミだこ', imageKey: 'collect_tako_5', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink4', name: 'はきだこ', imageKey: 'collect_tako_7', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink5', name: 'スミルミナス', imageKey: 'collect_tako_8', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink6', name: 'スミはつかは', imageKey: 'collect_tako_9', description: '驚くとすぐに墨を吐いて逃げる。' },
        
 
 
