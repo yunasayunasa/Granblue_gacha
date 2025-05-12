@@ -184,33 +184,51 @@ class GameScene extends Phaser.Scene {
         this.createJakoOverTargets();
         this.updateTargetInfoText();
 
-        this.input.on('dragstart', (pointer, gameObject) => {
+       this.input.on('dragstart', (pointer, gameObject) => {
             if (this.isPopupOpen || this.isGameOver || !gameObject.body) return;
             if (gameObject.getData('type') === CONFIG.IMG_JAKO) {
                 this.draggingObject = gameObject;
                 gameObject.setDepth(50);
+                // ドラッグ開始時にじゃこを少し「持ち上げる」ような効果（物理的にではなく、見た目や挙動で）
+                // 例えば、一時的に摩擦や空気抵抗をさらに下げるなど
+                if (gameObject.body) { // bodyがあることを確認
+                    // gameObject.setFrictionAir(0.005); // ドラッグ中は空気抵抗を極小に
+                }
             }
         });
-        this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
+         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
             if (this.isPopupOpen || this.isGameOver || !this.draggingObject || this.draggingObject !== gameObject || !gameObject.body) return;
             if (gameObject.getData('type') === CONFIG.IMG_JAKO) {
-                const forceMagnitude = 0.003 * gameObject.body.mass;
+                // 力の大きさを調整 (以前より少し弱く、または質量に対する比率で調整)
+                const forceMagnitude = 0.0025 * gameObject.body.mass; // ★調整ポイント
                 const angle = Phaser.Math.Angle.Between(gameObject.x, gameObject.y, dragX, dragY);
-                gameObject.applyForce({ x: Math.cos(angle) * forceMagnitude, y: Math.sin(angle) * forceMagnitude });
-                gameObject.setAngularVelocity(gameObject.body.angularVelocity * 0.9);
+                // 力を加える対象が gameObject.body であることを確認
+                if (gameObject.body) {
+                    this.matter.applyForce(gameObject.body, { x: Math.cos(angle) * forceMagnitude, y: Math.sin(angle) * forceMagnitude });
+                    // 角速度の抑制は継続
+                    gameObject.setAngularVelocity(gameObject.body.angularVelocity * 0.85); // ★調整ポイント
+                }
             }
         });
+
         this.input.on('dragend', (pointer, gameObject, dropped) => {
             if (this.isPopupOpen || this.isGameOver || !this.draggingObject || this.draggingObject !== gameObject || !gameObject.body) return;
             if (gameObject.getData('type') === CONFIG.IMG_JAKO) {
                 gameObject.setDepth(gameObject.getData('initialDepth') || 10);
                 this.draggingObject = null;
-                gameObject.setVelocity(0,0); gameObject.setAngularVelocity(0);
+                // ドラッグ終了時は速度と角速度をリセットし、空気抵抗を元に戻す
+                if (gameObject.body) { // bodyがあることを確認
+                    gameObject.setVelocity(0,0);
+                    gameObject.setAngularVelocity(0);
+                    // gameObject.setFrictionAir(0.03); // 元の空気抵抗値に戻す ★createJakoOverTargetsと合わせる
+                }
+
                 if (gameObject.y + gameObject.displayHeight / 2 > GAME_HEIGHT - CONFIG.SORT_AREA_HEIGHT) {
                     this.sortJako(gameObject);
                 }
             }
         });
+
 
         this.timerEvent = this.time.addEvent({ delay: 1000, callback: this.updateTimer, callbackScope: this, loop: true });
     }
@@ -270,27 +288,33 @@ class GameScene extends Phaser.Scene {
         this.totalTargetsToFind = currentTotalTargets;
     }
 
-    createJakoOverTargets() {
+     createJakoOverTargets() {
         const jakoSpawnArea = { minX: 50, maxX: GAME_WIDTH - 50, minY: 50, maxY: GAME_HEIGHT - CONFIG.SORT_AREA_HEIGHT - 50 };
         for (let i = 0; i < CONFIG.NUM_JAKO; i++) {
             let x, y;
             if (this.targets.length > 0 && Math.random() < 0.7) {
                 const randomTarget = Phaser.Utils.Array.GetRandom(this.targets);
-                x = randomTarget.x + Phaser.Math.Between(-40, 40); y = randomTarget.y + Phaser.Math.Between(-40, 40);
+                x = randomTarget.x + Phaser.Math.Between(-35, 35); y = randomTarget.y + Phaser.Math.Between(-35, 35); // 少し範囲を狭める
             } else {
                 x = Phaser.Math.Between(jakoSpawnArea.minX, jakoSpawnArea.maxX); y = Phaser.Math.Between(jakoSpawnArea.minY, jakoSpawnArea.maxY);
             }
             x = Phaser.Math.Clamp(x, 30, GAME_WIDTH - 30); y = Phaser.Math.Clamp(y, 30, GAME_HEIGHT - CONFIG.SORT_AREA_HEIGHT - 30);
 
             const jako = this.matter.add.image(x, y, CONFIG.IMG_JAKO)
-                .setScale(CONFIG.SCALE_JAKO).setRectangle(35 * CONFIG.SCALE_JAKO, 20 * CONFIG.SCALE_JAKO)
-                .setBounce(0.1).setFriction(0.5).setFrictionAir(0.05).setDensity(0.002)
-                .setAngle(Phaser.Math.Between(-180, 180)).setCollisionCategory(1).setCollidesWith([1])
+                .setScale(CONFIG.SCALE_JAKO)
+                .setRectangle(35 * CONFIG.SCALE_JAKO, 20 * CONFIG.SCALE_JAKO)
+                .setBounce(0.05)      // ★弾性をさらに低く (あまり跳ねないように)
+                .setFriction(0.2)    // ★摩擦を大幅に低く (滑りやすく)
+                .setFrictionAir(0.03) // ★空気抵抗も少し低く (動きやすく)
+                .setDensity(0.0015)   // ★密度を少し低く (軽く)
+                .setAngle(Phaser.Math.Between(-180, 180))
+                .setCollisionCategory(1).setCollidesWith([1])
                 .setDepth(10 + Math.random() * 5);
             jako.setData({ type: CONFIG.IMG_JAKO, sorted: false, initialDepth: jako.depth });
             jako.setInteractive({ draggable: true, useHandCursor: true });
         }
     }
+
 
     onTargetClicked(target) {
         if (target.getData('found') || this.isPopupOpen || this.isGameOver) return;
