@@ -43,6 +43,13 @@ const CONFIG = {
         'collect_tako_2': 'collect_tako_B.png',
         'collect_tako_3': 'collect_tako_C.png',
         'collect_tako_4': 'collect_tako_D.png',
+ 'collect_tako_5': 'collect_tako_E.png', 
+ 'collect_tako_6': 'collect_tako_F.png', 
+ 'collect_tako_7': 'collect_tako_G.png', 
+ 'collect_tako_8': 'collect_tako_H.png', 
+ 'collect_tako_9': 'collect_tako_I.png', 
+
+
         'collect_tako_king': 'collect_tako_king.png',
     }
 };
@@ -92,7 +99,7 @@ class StartScene extends Phaser.Scene {
     constructor() { super({ key: 'StartScene' }); }
     create() {
         this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'game_bg').setDisplaySize(GAME_WIDTH, GAME_HEIGHT).setDepth(-1);
-        this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 3, '選り分けゲーム', { ...CONFIG.RESULT_TEXT_STYLE, fontSize: '48px'}).setOrigin(0.5);
+        this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 3, 'どうしてガチャは蒼いのか', { ...CONFIG.RESULT_TEXT_STYLE, fontSize: '48px'}).setOrigin(0.5);
         const startButton = this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 50, 'ゲームスタート', CONFIG.RESULT_TEXT_STYLE)
             .setOrigin(0.5).setPadding(20).setStyle({ backgroundColor: '#1e6091', fill: '#ffffff'}).setInteractive({ useHandCursor: true });
         startButton.on('pointerdown', () => {
@@ -100,7 +107,7 @@ class StartScene extends Phaser.Scene {
             this.scene.launch('GameUIScene');
             this.scene.start('GameScene');
         });
-         this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 50, 'じゃこをスワイプして\nタコや貝をタップ！', { ...CONFIG.TARGET_INFO_STYLE, fontSize:'16px', align:'center'}).setOrigin(0.5);
+         this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 50, '石をスワイプして\nレアをタップ！', { ...CONFIG.TARGET_INFO_STYLE, fontSize:'16px', align:'center'}).setOrigin(0.5);
     }
 }
 
