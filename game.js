@@ -34,7 +34,7 @@ const CONFIG = {
         { id: 'tako_small', name: 'ロジャーダケズルイ', imageKey: 'collect_tako_3', description: '短い命だったね...' },
         { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_6', description: '驚くとすぐに墨を吐いて逃げる。' },
 
- { id: 'tako_2', name: 'トリアエズコレ', imageKey: 'collect_tako_4', description: 'サプ不可文化は\nそろそろ無くした方がいい' },
+ { id: 'tako_2', name: 'トリアエズコレ', imageKey: 'collect_tako_4', description: 'サプ不可文化は\n無くした方がいい' },
         { id: 'tako_ink3', name: 'スミだこ', imageKey: 'collect_tako_5', description: '驚くとすぐに墨を吐いて逃げる。' },
         { id: 'tako_ink4', name: 'はきだこ', imageKey: 'collect_tako_7', description: '驚くとすぐに墨を吐いて逃げる。' },
         { id: 'tako_ink5', name: 'スミルミナス', imageKey: 'collect_tako_8', description: '驚くとすぐに墨を吐いて逃げる。' },
