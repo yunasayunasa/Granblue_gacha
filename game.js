@@ -34,7 +34,7 @@ const CONFIG = {
         { id: 'tako_small', name: 'チビだこ', imageKey: 'collect_tako_3', description: 'とても小さいが元気なタコ。すばしっこい。' },
         { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
 
- { id: 'tako_2', name: 'スミ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
+ { id: 'tako_2', name: 'トリアエズコレ', imageKey: 'collect_tako_4', description: 'サプ不可文化はそろそろ無くした方がいい' },
         { id: 'tako_ink3', name: 'スミだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
         { id: 'tako_ink4', name: 'はきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
         { id: 'tako_ink5', name: 'スミルミナス', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
@@ -132,7 +132,7 @@ class GameUIScene extends Phaser.Scene {
         const gameScene = this.scene.get('GameScene');
         gameScene.events.on('updateScore', (newScore) => { this.scoreText.setText(`スコア: ${newScore}`); }, this);
         gameScene.events.on('updateTimer', (newTimeLeft) => { this.timerText.setText(`時間: ${newTimeLeft}`); }, this);
-        gameScene.events.on('updateTargetInfo', (takoLeft, kaiLeft) => { this.targetInfoText.setText(`タコ:${takoLeft} / 貝:${kaiLeft}`); }, this);
+        gameScene.events.on('updateTargetInfo', (takoLeft, kaiLeft) => { this.targetInfoText.setText(`SSR:${takoLeft} / ヒヒ:${kaiLeft}`); }, this);
         gameScene.events.on('showCollectiblePopup', this.showPopup, this); // タコ用ポップアップ
         gameScene.events.on('gameOverUI', this.showGameOverUI, this);
     }
