@@ -22,7 +22,7 @@ const CONFIG = {
     GAME_DURATION_SECONDS: 90,
 
     SORT_AREA_HEIGHT: 80,
-    TEXT_STYLE: { fontSize: '22px', fill: '#fff', stroke: '#000', strokeThickness: 4 },
+    TEXT_STYLE: { fontSize: '40px', fill: '#fff', stroke: '#000', strokeThickness: 4 },
     TARGET_INFO_STYLE: { fontSize: '35px', fill: '#fff', stroke: '#000', strokeThickness: 2, align: 'center' },
     RESULT_TEXT_STYLE: { fontSize: '30px', fill: '#fff', stroke: '#000', strokeThickness: 5, align: 'center' },
     POPUP_TEXT_STYLE: { fontSize: '40px', fill: '#333', align: 'center', wordWrap: { width: GAME_WIDTH * 0.6 } },
@@ -30,7 +30,7 @@ const CONFIG = {
     // --- タコの収集アイテムデータ (貝はここから削除) ---
     TAKO_COLLECTIBLES: [
         { id: 'tako_common_1', name: '普通のタコ', imageKey: 'collect_tako_1', description: 'よく見かける一般的なタコ。美味しい。' },
-        { id: 'tako_striped', name: 'シマシマだこ', imageKey: 'collect_tako_2', description: '体に綺麗な縞模様があるタコ。少し珍しい。' },
+        { id: 'tako_striped', name: 'ジッシツルミナス', imageKey: 'collect_tako_2', description: 'もはやルミナス。\nとても強い。' },
         { id: 'tako_small', name: 'チビだこ', imageKey: 'collect_tako_3', description: 'とても小さいが元気なタコ。すばしっこい。' },
         { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
 
@@ -102,7 +102,7 @@ class PreloadScene extends Phaser.Scene {
         // UI用画像
         this.load.image('popup_bg', ASSETS_PATH + 'popup_background.png');
         this.load.image('game_bg', ASSETS_PATH + 'background_topdown.jpg');
-        
+
     }
     create() { this.scene.start('StartScene'); }
 }
@@ -119,7 +119,7 @@ class StartScene extends Phaser.Scene {
             this.scene.launch('GameUIScene');
             this.scene.start('GameScene');
         });
-         this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 50, '石をスワイプして\nレアをタップ！', { ...CONFIG.TARGET_INFO_STYLE, fontSize:'16px', align:'center'}).setOrigin(0.5);
+         this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 10, '石をスワイプして\nレアをタップ！', { ...CONFIG.TARGET_INFO_STYLE, fontSize:'16px', align:'center'}).setOrigin(0.5);
     }
 }
 
@@ -128,7 +128,7 @@ class GameUIScene extends Phaser.Scene {
     create() {
         this.scoreText = this.add.text(20, 20, `スコア: 0`, CONFIG.TEXT_STYLE).setDepth(100);
         this.timerText = this.add.text(GAME_WIDTH - 20, 20, `時間: ${CONFIG.GAME_DURATION_SECONDS}`, CONFIG.TEXT_STYLE).setOrigin(1, 0).setDepth(100);
-        this.targetInfoText = this.add.text(GAME_WIDTH / 2, 60, `タコ:0 / 貝:0`, CONFIG.TARGET_INFO_STYLE).setOrigin(0.5,0).setDepth(100);
+        this.targetInfoText = this.add.text(GAME_WIDTH / 2, 60, `SSR:0 / ヒヒ:0`, CONFIG.TARGET_INFO_STYLE).setOrigin(0.5,0).setDepth(100);
         const gameScene = this.scene.get('GameScene');
         gameScene.events.on('updateScore', (newScore) => { this.scoreText.setText(`スコア: ${newScore}`); }, this);
         gameScene.events.on('updateTimer', (newTimeLeft) => { this.timerText.setText(`時間: ${newTimeLeft}`); }, this);
@@ -322,9 +322,9 @@ class GameScene extends Phaser.Scene {
             const jako = this.matter.add.image(x, y, CONFIG.IMG_JAKO)
                 .setScale(CONFIG.SCALE_JAKO)
                 .setRectangle(35 * CONFIG.SCALE_JAKO, 20 * CONFIG.SCALE_JAKO)
-                .setBounce(0.04)      // ★弾性をさらに低く (あまり跳ねないように)
-                .setFriction(0.1)    // ★摩擦を大幅に低く (滑りやすく)
-                .setFrictionAir(0.02) // ★空気抵抗も少し低く (動きやすく)
+                .setBounce(0.03)      // ★弾性をさらに低く (あまり跳ねないように)
+                .setFriction(0.05)    // ★摩擦を大幅に低く (滑りやすく)
+                .setFrictionAir(0.01) // ★空気抵抗も少し低く (動きやすく)
                 .setDensity(0.001)   // ★密度を少し低く (軽く)
                 .setAngle(Phaser.Math.Between(-180, 180))
                 .setCollisionCategory(1).setCollidesWith([1])
