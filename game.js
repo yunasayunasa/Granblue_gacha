@@ -29,7 +29,7 @@ const CONFIG = {
 
     // --- タコの収集アイテムデータ (貝はここから削除) ---
     TAKO_COLLECTIBLES: [
-        { id: 'tako_common_1', name: '普通のタコ', imageKey: 'collect_tako_1', description: 'よく見かける一般的なタコ。美味しい。' },
+        { id: 'tako_common_1', name: 'ハルタノオキミヤゲ', imageKey: 'collect_tako_1', description: '忘れ去られし古の遺品' },
         { id: 'tako_striped', name: 'ジッシツルミナス', imageKey: 'collect_tako_2', description: 'もはやルミナス。\nとても強い。' },
         { id: 'tako_small', name: 'チビだこ', imageKey: 'collect_tako_3', description: 'とても小さいが元気なタコ。すばしっこい。' },
         { id: 'tako_ink', name: 'スミはきだこ', imageKey: 'collect_tako_4', description: '驚くとすぐに墨を吐いて逃げる。' },
