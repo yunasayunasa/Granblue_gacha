@@ -119,7 +119,7 @@ class StartScene extends Phaser.Scene {
             this.scene.launch('GameUIScene');
             this.scene.start('GameScene');
         });
-         this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 10, '石をスワイプして\nレアをタップ！', { ...CONFIG.TARGET_INFO_STYLE, fontSize:'16px', align:'center'}).setOrigin(0.5);
+         this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 100, '石をスワイプして\nレアをタップ！', { ...CONFIG.TARGET_INFO_STYLE, fontSize:'16px', align:'center'}).setOrigin(0.5);
     }
 }
 
