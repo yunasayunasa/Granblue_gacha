@@ -4,7 +4,7 @@ const GAME_HEIGHT = 800;
 const ASSETS_PATH = 'assets/'; // ベースパスは残すが、画像指定時にフォルダ名を入れない
 
 const CONFIG = {
-    NUM_JAKO: 100,
+    NUM_JAKO: 50,
     NUM_TAKO: 4,    // タコの数 (収集対象)
     NUM_KAI: 3,     // 貝の数 (1種類のみ)
 
@@ -193,7 +193,7 @@ class GameScene extends Phaser.Scene {
 
         const sortAreaY = GAME_HEIGHT - CONFIG.SORT_AREA_HEIGHT;
         this.add.rectangle(0, sortAreaY, GAME_WIDTH, CONFIG.SORT_AREA_HEIGHT, 0x000000, 0.3).setOrigin(0,0).setDepth(1);
-        this.add.text(GAME_WIDTH / 2, sortAreaY + CONFIG.SORT_AREA_HEIGHT / 2, '▼ ここにドラッグ ▼', {...CONFIG.TEXT_STYLE, fontSize: '20px', fill: '#444'}).setOrigin(0.5).setDepth(2);
+        this.add.text(GAME_WIDTH / 2, sortAreaY + CONFIG.SORT_AREA_HEIGHT / 2, '▼ ここにドラッグ ▼', {...CONFIG.TEXT_STYLE, fontSize: '40px', fill: '#000'}).setOrigin(0.5).setDepth(2);
         this.sortAreaSensor = this.matter.add.rectangle(GAME_WIDTH / 2, sortAreaY + CONFIG.SORT_AREA_HEIGHT / 2, GAME_WIDTH, CONFIG.SORT_AREA_HEIGHT, { isSensor: true, isStatic: true, label: 'sortArea' });
         
         this.events.emit('updateScore', this.score);
