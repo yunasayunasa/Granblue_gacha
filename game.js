@@ -32,7 +32,7 @@ const CONFIG = {
         { id: 'tako_common_1', name: 'ハルタノオキミヤゲ', imageKey: 'collect_tako_1', description: '忘れ去られし古の遺品' },
         { id: 'tako_striped', name: 'ジッシツルミナス', imageKey: 'collect_tako_2', description: 'もはやルミナス。\nとても強い。' },
         { id: 'tako_small', name: 'ロジャーダケズルイ', imageKey: 'collect_tako_3', description: '短い命だったね...' },
-        { id: 'tako_ink', name: 'オノユーノケシン', imageKey: 'collect_tako_6', description: 'グラン役の\n小野祐樹でーす！' },
+        { id: 'tako_ink', name: 'オノユーノケシン', imageKey: 'collect_tako_6', description: 'グラン役の\n小野友樹でーす！' },
 
  { id: 'tako_2', name: 'トリアエズコレ', imageKey: 'collect_tako_4', description: 'サプ不可文化は\n無くした方がいい' },
         { id: 'tako_ink3', name: 'ミュルグレス', imageKey: 'collect_tako_5', description: '貴重な水三手' },
