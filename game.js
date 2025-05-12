@@ -23,8 +23,8 @@ const CONFIG = {
 
     SORT_AREA_HEIGHT: 80,
     TEXT_STYLE: { fontSize: '40px', fill: '#fff', stroke: '#000', strokeThickness: 4 },
-    TARGET_INFO_STYLE: { fontSize: '35px', fill: '#fff', stroke: '#000', strokeThickness: 2, align: 'center' },
-    RESULT_TEXT_STYLE: { fontSize: '30px', fill: '#fff', stroke: '#000', strokeThickness: 5, align: 'center' },
+    TARGET_INFO_STYLE: { fontSize: '50px', fill: '#fff', stroke: '#000', strokeThickness: 2, align: 'center' },
+    RESULT_TEXT_STYLE: { fontSize: '50px', fill: '#fff', stroke: '#000', strokeThickness: 5, align: 'center' },
     POPUP_TEXT_STYLE: { fontSize: '40px', fill: '#333', align: 'center', wordWrap: { width: GAME_WIDTH * 0.6 } },
 
     // --- タコの収集アイテムデータ (貝はここから削除) ---
@@ -38,13 +38,13 @@ const CONFIG = {
         { id: 'tako_ink3', name: 'スミだこ', imageKey: 'collect_tako_5', description: '驚くとすぐに墨を吐いて逃げる。' },
         { id: 'tako_ink4', name: 'はきだこ', imageKey: 'collect_tako_7', description: '驚くとすぐに墨を吐いて逃げる。' },
         { id: 'tako_ink5', name: 'スミルミナス', imageKey: 'collect_tako_8', description: '驚くとすぐに墨を吐いて逃げる。' },
-        { id: 'tako_ink6', name: 'スミはつかは', imageKey: 'collect_tako_9', description: '驚くとすぐに墨を吐いて逃げる。' },
+        { id: 'tako_ink6', name: 'クオリティオブライフ', imageKey: 'collect_tako_9', description: '水であり酸素' },
        
 
 
 
 
-        { id: 'tako_king', name: 'タコキング', imageKey: 'collect_tako_king', description: '風格ただよう、タコの中の王様（自称）。' },
+        { id: 'tako_king', name: 'ボーダーバクノビ', imageKey: 'collect_tako_king', description: '90ヘルを回る意味を\n持たせてくれた' },
         // 必要ならさらにタコの種類を追加
     ],
     // ポップアップで使用するタコ画像キー (貝のキーは削除)
