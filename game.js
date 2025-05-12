@@ -82,9 +82,9 @@ class PreloadScene extends Phaser.Scene {
         });
 
         // 画像の読み込み
-        this.load.image(CONFIG.IMG_JAKO, 'img/jako.png');
-        this.load.image(CONFIG.IMG_TAKO, 'img/tako.png');
-        this.load.image(CONFIG.IMG_KAI, 'img/kai.png');
+        this.load.image(CONFIG.IMG_JAKO, 'assets/jako.png');
+        this.load.image(CONFIG.IMG_TAKO, 'assets/tako.png');
+        this.load.image(CONFIG.IMG_KAI, 'assets/kai.png');
         // 必要なら背景画像などもここで
         // this.load.image('background', 'img/background.png');
     }
